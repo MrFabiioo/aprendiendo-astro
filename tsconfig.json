@@ -8,6 +8,7 @@
       "@layout/*":["./src/layout/*"],
       "@styles/*":["./src/styles/*"],
       "@components/*":["./src/components/*"],
+      "@utils/*":["./src/utils/*"],
     }
   }
 }

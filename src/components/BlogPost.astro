@@ -1,30 +1,34 @@
 ---
-interface Props {
-    imgSrc: string;
-    titlePost: string;
-    date: string;
-}
+// interface Props {
+//     imgSrc: string;
+//     titlePost: string;
+//     date: string;
+// }
 
-const { imgSrc, titlePost, date }: Props = Astro.props;
+import {Formatter} from "@utils/formatter" 
+
+const { frontmatter,url }= Astro.props;
+
 ---
 
 <div class="lg:flex">
     <img
         class="object-cover w-full h-56 rounded-lg lg:w-64"
-        src={imgSrc}
-        alt=""
+        src={frontmatter.image}
+        alt={frontmatter.title}
+        
     />
 
     <div class="flex flex-col justify-between py-6 lg:mx-6">
         <a
-            href="#"
+            href={url}
             class="text-xl font-semibold text-gray-800 hover:underline dark:text-white"
         >
-            {titlePost}
+            {frontmatter.description}
         </a>
 
         <span class="text-sm text-gray-500 dark:text-gray-300"
-            >On: {date}</span
+            >On: {Formatter.formatDate(frontmatter.date)}</span
         >
     </div>
 </div>
