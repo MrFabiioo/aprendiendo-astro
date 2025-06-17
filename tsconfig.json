@@ -6,6 +6,7 @@
     "baseUrl": ".",
     "paths": {
       "@layout/*":["./src/layout/*"],
+      "@styles/*":["./src/styles/*"],
     }
   }
 }

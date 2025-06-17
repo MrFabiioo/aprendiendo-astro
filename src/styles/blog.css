@@ -1,0 +1,41 @@
+@import "tailwindcss";
+
+html {
+   background-color: gray-900;
+   padding-inline: calc(var(--spacing) * 10);
+}
+
+body {
+  margin-top: calc(var(--spacing) * 10);
+}
+
+h1 {
+  font-size: var(--text-3xl);
+  color: white;
+  margin-block: calc(var(--spacing) * 5);
+
+}
+
+h2 {
+  font-size: var(--text-2xl);
+  color: var(--color-blue-500);
+  margin-block: calc(var(--spacing) * 5);
+}
+
+h3 {
+  font-size: var(--text-xl);
+  color: white;
+  margin-block: calc(var(--spacing) * 5);
+}
+
+p {
+  font-size: var(--text-base);
+  color: white;
+  margin-block: calc(var(--spacing) * 5);
+}
+
+a {
+    color: var(--color-blue-500);
+    text-decoration: underline;
+
+}
