@@ -8,7 +8,7 @@ import TypeBlogPost from "@components/TypeBlogPost.astro";
 
 const posts = await Astro.glob('./posts-old/*.{md,mdx}')
 const blogPosts = await getCollection('blog')
-//console.log("slug: ",blogPosts[1])
+//console.log("slug: ",blogPosts[2].data.image)
 ---
 
 <MainLayout>

@@ -4,18 +4,23 @@ interface Props {
 }
 
 import {Formatter} from "@utils/formatter" 
+import Image from "astro/components/Image.astro";
 import type { CollectionEntry } from "astro:content";
 
 const { post }= Astro.props;
-
+//console.log('post.data: ',post.data)
 ---
 
 <div class="lg:flex">
-    <img
+    <Image
         class="object-cover w-full h-56 rounded-lg lg:w-64"
         src={post.data.image}
         alt={post.data.title}
-        
+        width={500}
+        height={500}
+        quality="low"
+        loading="lazy" 
+        transition:name={`${post.slug}-image`}
     />
 
     <div class="flex flex-col justify-between py-6 lg:mx-6">
