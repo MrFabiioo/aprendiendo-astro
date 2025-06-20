@@ -1,0 +1,65 @@
+---
+import type { GetStaticPaths } from "astro";
+  // Type GetStaticPaths de Astro
+import MainLayout from '@layout/MainLayout.astro';
+import TypeBlogPost from '@components/TypeBlogPost.astro';
+import { getCollection } from "astro:content";
+
+export const getStaticPaths = (async({paginate}) => {
+  const blogPosts = await getCollection("blog");
+  return paginate(blogPosts,{pageSize:2});
+}) satisfies GetStaticPaths;
+const { page } = Astro.props;
+
+
+
+---
+
+<MainLayout>
+  <div class="py-10 mx-auto">
+    <a href="/">Inicio</a>
+    <h1 class="text-3xl font-semibold capitalize lg:text-4xl text-white">
+      Fabios's Blog paginado
+    </h1>
+  </div>
+
+  <section class="bg-gray-900" aria-label="Entradas de blog">
+    <div class="grid grid-cols-1 gap-8 mt-8 md:mt-16 md:grid-cols-2">
+      {page.data.map((post) => <TypeBlogPost post={post} />)}
+    </div>
+  </section>
+
+  <section aria-label="Controles" class="flex justify-between mt-10">
+
+<!--   page .. ?? prev   -->
+    <a
+      href={page.url.prev}
+      class:list={{
+        disabled: !page.url.prev,
+      }}>Anteriores</a
+    >
+    
+<!--   page .. ?? next   -->
+    <a
+      href={page.url.next}
+      class:list={{
+        disabled: !page.url.next,
+      }}>Siguientes</a
+    >
+  </section>
+</MainLayout>
+
+<style>
+  a {
+    background-color: var(--color-blue-500);
+    color: white;
+    padding: calc(var(--spacing) * 2);
+    border-radius: var(--radius-lg) ;
+    cursor: pointer;
+  }
+
+  .disabled {
+    background-color: var(--color-gray-500);
+    cursor:no-drop
+  }
+</style>
