@@ -10,7 +10,7 @@ isDraft: false
 # layout: ../../layout/BlogLayout.astro
 ---
 
-# { frontmatter.title }
+{/* # { frontmatter.title } */}
 
 {/* # Explorando Funciones de ES6 */}
 
