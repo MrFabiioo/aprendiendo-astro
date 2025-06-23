@@ -1,22 +1,19 @@
 ---
-
 import AuthorCard from "@components/AuthorCard.astro";
 import MainLayout from "@layout/MainLayout.astro";
 import { getCollection } from "astro:content";
 import { title } from "src/config/site-config";
 
-const author = await getCollection('author');
+const author = await getCollection("author");
 ---
 
 <MainLayout>
-    <section class="">
+    <section>
         <h1 class="text-xl font-extrabold text-amber-50">{title}</h1>
         <a class="text-blue-500 text-2xl hover:underline" href="/"> Inicio</a>
     </section>
 
     <section class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-        {author.map((author)=>(
-            <AuthorCard author={author} />
-        ))}
+        {author.map((au) => <AuthorCard author={au} />)}
     </section>
 </MainLayout>
