@@ -12,5 +12,5 @@ export default defineConfig({
   },
 
   integrations: [mdx()],
-  site:"https://biblioteca-personal.vercel.app/"
+  site:"https://flourishing-tapioca-0afe01.netlify.app/"
 });

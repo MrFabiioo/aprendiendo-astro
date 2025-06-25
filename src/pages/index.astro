@@ -1,12 +1,12 @@
 ---
 import MainLayout from "@layout/MainLayout.astro";
 //import BlogPost from "@components/BlogPost.astro";
-import {siteConfig,title} from "../config/site-config"
+import {title} from "../config/site-config"
 import { getCollection } from "astro:content";
 import TypeBlogPost from "@components/TypeBlogPost.astro";
 
 
-const posts = await Astro.glob('./posts-old/*.{md,mdx}')
+//const posts = await Astro.glob('./posts-old/*.{md,mdx}')
 const blogPosts = await getCollection('blog',(post)=>post.data.isDraft===false)
 //console.log("slug: ",blogPosts[2].data.image)
 ---
