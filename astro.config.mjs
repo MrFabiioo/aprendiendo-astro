@@ -12,5 +12,5 @@ export default defineConfig({
   },
 
   integrations: [mdx()],
-  site:"htts://example.com"
+  site:"https://biblioteca-personal.vercel.app/"
 });

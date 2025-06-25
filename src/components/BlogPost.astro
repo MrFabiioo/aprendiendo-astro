@@ -1,9 +1,13 @@
 ---
-// interface Props {
-//     imgSrc: string;
-//     titlePost: string;
-//     date: string;
-// }
+interface Props {
+    url: string;
+    frontmatter: {
+        title: string;
+        description: string;
+        date: Date;
+        image: string;
+    };
+}
 
 import {Formatter} from "@utils/formatter" 
 

@@ -1,11 +1,12 @@
 ---
 import MainLayout from "@layout/MainLayout.astro";
 import BlogPost from "@components/BlogPost.astro";
-import {siteConfig,title} from "../config/site-config"
-import type { ACTION_ERROR_CODES, ACTION_QUERY_PARAMS, ActionError } from "astro:actions";
+import {title} from "../config/site-config"
+import type { Post } from "../interfaces/types.ts";
 
-const posts = await Astro.glob('./posts/*.{md,mdx}')
-
+const matches = import.meta.glob<Post>('./posts-old/*.{md,mdx}',{ eager: true });
+const posts = Object.values(matches)
+//console.log(posts?.map((post) => post.frontmatter))
 ---
 
 <MainLayout>
@@ -15,7 +16,7 @@ const posts = await Astro.glob('./posts/*.{md,mdx}')
         <h1 class="text-3xl font-semibold text-gray-800 capitalize lg:text-4xl dark:text-white">{title}</h1>
 
         <div class="grid grid-cols-1 gap-8 mt-8 md:mt-16 md:grid-cols-2">
-			{posts.map((post)=>(
+            {posts.map((post) => (
                 <BlogPost {...post} />
             ))}
         </div>
